@@ -5,11 +5,8 @@ package com.cis;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
-
-import com.digitalhealthcare.DigiHealthCareAddCareTakers;
 
 /**
  * @author Darshan

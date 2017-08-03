@@ -39,4 +39,21 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>CISCommunication</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/CISCommunication/src</location>
+		</link>
+		<link>
+			<name>CISDataCommon</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/CISDataCommon/src</location>
+		</link>
+		<link>
+			<name>CISSessions</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/CISSessions/src</location>
+		</link>
+	</linkedResources>
 </projectDescription>
