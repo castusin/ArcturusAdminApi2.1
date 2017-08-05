@@ -55,5 +55,25 @@
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/CISSessions/src</location>
 		</link>
+		<link>
+			<name>CommonCISValidation</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/CommonCISValidation/src</location>
+		</link>
+		<link>
+			<name>DeleteAvailabilityService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/DeleteAvailabilityService/src</location>
+		</link>
+		<link>
+			<name>SaveStaffAvilabiltyService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/SaveStaffAvilabiltyService/src</location>
+		</link>
+		<link>
+			<name>ViewAvailbilityService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/ViewAvailbilityService/src</location>
+		</link>
 	</linkedResources>
 </projectDescription>
