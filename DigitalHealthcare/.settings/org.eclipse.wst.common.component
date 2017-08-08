@@ -13,6 +13,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/DeleteAvailabilityService"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CommonCISValidation"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/ReferFriendService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/SaveAdminMessages"/>
         <property name="context-root" value="DigitalHealthcare"/>
         <property name="java-output-path" value="/DigitalHealthcare/target/classes"/>
     </wb-module>

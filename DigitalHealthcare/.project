@@ -71,6 +71,11 @@
 			<location>E:/GitHub/ArcturusAdminApi2.1/ReferFriendService/src</location>
 		</link>
 		<link>
+			<name>SaveAdminMessages</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/SaveAdminMessages/src</location>
+		</link>
+		<link>
 			<name>SaveStaffAvilabiltyService</name>
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/SaveStaffAvilabiltyService/src</location>
