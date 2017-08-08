@@ -66,11 +66,6 @@
 			<location>E:/GitHub/ArcturusAdminApi2.1/DeleteAvailabilityService/src</location>
 		</link>
 		<link>
-			<name>ReferFriendService</name>
-			<type>2</type>
-			<location>E:/GitHub/ArcturusAdminApi2.1/ReferFriendService/src</location>
-		</link>
-		<link>
 			<name>SaveAdminMessages</name>
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/SaveAdminMessages/src</location>
@@ -84,6 +79,11 @@
 			<name>ViewAvailbilityService</name>
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/ViewAvailbilityService/src</location>
+		</link>
+		<link>
+			<name>ViewMessages</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/ViewMessages/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

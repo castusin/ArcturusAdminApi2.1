@@ -24,15 +24,14 @@
 	<bean id="DeletestaffAvilabilty" class="com.digitalhealthcare.DigiHealthCareDeletestaffAvilabiltyDAO">
 		<property name="dataSource" ref="ds" />
 	</bean>
-	
-	<bean id="ReferFriend" class="com.digitalhealthcare.DigitalHealthCareReferFriendDAO"> 
- 		<property name="dataSource" ref="ds" /> 
- 	</bean>
- 	
+	 	
  	<bean id="SaveAdminMessages" class="com.digitalhealthcare.DigiHealthCareSaveAdminMessagesDAO"> 
  		<property name="dataSource" ref="ds" /> 
  	</bean>
  	
+	<bean id="viewMessages" class="com.digitalhealthcare.ViewMessagesDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
 	
 <!-- Development  DB connections     --> 
 

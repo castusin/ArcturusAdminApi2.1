@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.cis.CISConstants;
 import com.cis.CISResults;
 import com.digitalhealthcare.DigiHealthCaresaveStaffAvilabiltyModel;
+import com.digitalhealthcare.ViewMessagesModel;
 
 
 public class CommonCISValidation {
@@ -74,6 +75,36 @@ public class CommonCISValidation {
 
 	public CISResults deletestaffAvilabiltyValidation(
 			HttpServletRequest request, String availabilityId) {
+
+
+		CISResults cisResult=new CISResults();
+		ArrayList<String> emptyValidatonArray= new ArrayList<String>();
+		cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		String headerAuthorization=request.getHeader(CISConstants.HEADERS_AUTHROIZATION);
+	        //Validate Headers AUTHROIZATION
+	   if(headerAuthorization.equals(CISConstants.HEADERS_AUTHROIZATION_VAUE))
+	         {
+		               cisResult.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+	         }else
+	         {
+		               cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+	          }
+	   
+	   
+	        // Validate Null Values 
+	   if(cisResult.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+		  {
+	   
+			 for (String st : emptyValidatonArray) {
+		            if  (st==null || st.equals(""))
+		            	cisResult.setResponseCode(CISConstants.RESPONSE_FAILURE);
+		          } 
+		  }
+		return cisResult;
+	}
+
+	public CISResults viewMessagesValidation(HttpServletRequest request,
+			ViewMessagesModel viewMessages) {
 
 
 		CISResults cisResult=new CISResults();
