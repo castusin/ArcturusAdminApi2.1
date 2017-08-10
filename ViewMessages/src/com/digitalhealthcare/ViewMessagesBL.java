@@ -21,7 +21,7 @@ public class ViewMessagesBL {
 	public CISResults viewMessages(ViewMessagesModel viewMessages) {
 		final Logger logger = Logger.getLogger(ViewMessagesBL.class);
 		
-		CISResults cisResult = viewMessagesDAO.viewMessages(viewMessages.getUserId(),viewMessages.getPatientId(),viewMessages.getMessageId(),viewMessages.getAptId(),viewMessages.getMessageText(),viewMessages.getPhoneNumber(),viewMessages.getEmailId(),viewMessages.getCreateDate(),viewMessages.getMessageType());
+		CISResults cisResult = viewMessagesDAO.viewMessages(viewMessages.getUserId(),viewMessages.getPatientId(),viewMessages.getMessageId(),viewMessages.getAptId(),viewMessages.getMessageText(),viewMessages.getPhoneNumber(),viewMessages.getEmailId(),viewMessages.getCreateDate(),viewMessages.getMessageType(),viewMessages.getMessageCategory());
 		logger.info("DigitalHealthCare:view messages BL  service" +cisResult );
 		return cisResult;
 	}

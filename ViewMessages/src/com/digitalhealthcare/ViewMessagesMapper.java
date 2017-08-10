@@ -29,7 +29,7 @@ public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 	  // viewMessages.setType(rs.getString("type"));
 	  // viewMessages.setAptWith(rs.getString("Apt_with"));
 	   viewMessages.setMessageType(rs.getString("Message_type"));
-	  // viewMessages.setTitle(rs.getString("Type"));
+	   viewMessages.setMessageCategory(rs.getString("Message_category"));
 	   viewMessages.setUserId(rs.getString("User_id"));
 	   viewMessages.setFirstName(rs.getString("First_name"));
 	   viewMessages.setLastName(rs.getString("Last_name"));

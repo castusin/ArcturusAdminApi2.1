@@ -15,8 +15,8 @@ public class DigiHealthCareSaveAdminMessagesModel {
 	public String messageText;                   
 	public String createdDate;                  
 	public String messageType;    
-
-    public DigiHealthCareSaveAdminMessagesModel(String messageId, String aptId, String patientId, String userId, String phoneNumber, String emailId, String messageText, String createdDate, String messageType) {
+	public String messageCategory;
+    public DigiHealthCareSaveAdminMessagesModel(String messageId, String aptId, String patientId, String userId, String phoneNumber, String emailId, String messageText, String createdDate, String messageType, String messageCategory) {
 		super();
 		this.messageId=messageId;
 		this.aptId=aptId;
@@ -27,9 +27,20 @@ public class DigiHealthCareSaveAdminMessagesModel {
 		this.messageText=messageText;
 		this.createdDate=createdDate;
 		this.messageType=messageType;
-		
+		this.messageCategory=messageCategory;
 	
 		}
+
+	public String getMessageCategory() {
+		return messageCategory;
+	}
+
+
+
+
+	public void setMessageCategory(String messageCategory) {
+		this.messageCategory = messageCategory;
+	}
 
 
 

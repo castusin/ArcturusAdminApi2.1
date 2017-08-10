@@ -13,7 +13,7 @@ public class DigiHealthCareSaveAdminMessagesDAO extends JdbcDaoSupport {
 
 	public CISResults saveAdminMessages(String messageId, String aptId,
 			String patientId, String userId,String phoneNumber, String emailId,
-			String messageText, String createDate, String messageType) {
+			String messageText, String createDate, String messageType, String messageCategory) {
 		// TODO Auto-generated method stub
 
 

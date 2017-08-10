@@ -21,7 +21,7 @@ public class ViewMessagesModel {
 	String firstName;
 	String lastName;
 	String photoUrl;
-
+	String messageCategory;
 
 	
 
@@ -39,7 +39,7 @@ public class ViewMessagesModel {
 	public ViewMessagesModel(String userId, String patientId,
 			String messageId, String aptId, String messageText,
 			String phoneNumber, String emailId, Date createDate,
-			String aptStarttime, String aptEndtime, String type, String aptWith, String messageType, String title, String firstName, String lastName, String photoUrl) {
+			String aptStarttime, String aptEndtime, String type, String aptWith, String messageType, String title, String firstName, String lastName, String photoUrl, String messageCategory) {
 		super();
 		this.userId = userId;
 		this.patientId = patientId;
@@ -58,6 +58,17 @@ public class ViewMessagesModel {
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.photoUrl=photoUrl;
+		this.messageCategory=messageCategory;
+	}
+
+
+	public String getMessageCategory() {
+		return messageCategory;
+	}
+
+
+	public void setMessageCategory(String messageCategory) {
+		this.messageCategory = messageCategory;
 	}
 
 

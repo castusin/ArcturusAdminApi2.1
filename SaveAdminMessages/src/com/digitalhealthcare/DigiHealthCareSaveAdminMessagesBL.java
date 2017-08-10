@@ -57,7 +57,7 @@ public class DigiHealthCareSaveAdminMessagesBL {
           String createDate=time.getTimeZone();
          
       
-          cisResults = saveAdminMessagesDAO.saveAdminMessages(saveMessages.getMessageId(),saveMessages.getAptId(),saveMessages.getPatientId(),saveMessages.getUserId(),saveMessages.getPhoneNumber(),saveMessages.getEmailId(),saveMessages.getMessageText(),createDate,saveMessages.getMessageType());
+          cisResults = saveAdminMessagesDAO.saveAdminMessages(saveMessages.getMessageId(),saveMessages.getAptId(),saveMessages.getPatientId(),saveMessages.getUserId(),saveMessages.getPhoneNumber(),saveMessages.getEmailId(),saveMessages.getMessageText(),createDate,saveMessages.getMessageType(),saveMessages.getMessageCategory());
         // Capture Service End time
           String serviceEndTime=time.getTimeZone();
           long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);

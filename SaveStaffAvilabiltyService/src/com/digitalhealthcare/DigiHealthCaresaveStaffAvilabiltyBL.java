@@ -56,7 +56,7 @@ public class DigiHealthCaresaveStaffAvilabiltyBL {
           formatter.setTimeZone(obj);
           String createDate=time.getTimeZone();
       
-          cisResults = saveStaffAvilabiltyDAO.saveStaffAvailability(availabilityId,saveStaff.getStaffId(),saveStaff.getAvailabilityFlag(),saveStaff.getWeekdayName(),saveStaff.getStartDate(),saveStaff.getEndDate(),saveStaff.getStartTime(),saveStaff.getEndTime(),createDate);
+          cisResults = saveStaffAvilabiltyDAO.saveStaffAvailability(availabilityId,saveStaff.getStaffId(),saveStaff.getAvailabilityFlag(),saveStaff.getWeekdayName(),saveStaff.getDate(),saveStaff.getStartTime(),saveStaff.getEndTime(),createDate);
               
         // Capture Service End time
           String serviceEndTime=time.getTimeZone();

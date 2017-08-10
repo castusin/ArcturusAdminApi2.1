@@ -22,7 +22,7 @@ public class ViewMessagesDAO extends JdbcDaoSupport {
 	public CISResults viewMessages(String userId, String patientId,
 			String messageId, String aptId, String messageText,
 			String phoneNumber, String emailId, Date createDate,
-			String messageType) {
+			String messageType, String messageCategory) {
 
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);

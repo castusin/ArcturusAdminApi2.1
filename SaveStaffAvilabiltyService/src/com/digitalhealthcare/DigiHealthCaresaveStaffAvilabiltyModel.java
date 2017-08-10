@@ -9,20 +9,20 @@ public class DigiHealthCaresaveStaffAvilabiltyModel {
 	public String staffId;                   
 	public String availabilityFlag;        
 	public String weekdayName;      
-	public String startDate;                   
-	public String endDate;                   
+	public String date;                   
+	//public String endDate;                   
 	public String startTime;                   
 	public String endTime;                  
 	public String createDatetime;    
 
-    public DigiHealthCaresaveStaffAvilabiltyModel(String availabilityId, String staffId, String availabilityFlag, String weekdayName, String startDate, String endDate, String startTime, String endTime, String createDatetime) {
+    public DigiHealthCaresaveStaffAvilabiltyModel(String availabilityId, String staffId, String availabilityFlag, String weekdayName, String startTime, String endTime, String createDatetime, String date) {
 		super();
 		this.availabilityId=availabilityId;
 		this.staffId=staffId;
 		this.availabilityFlag=availabilityFlag;
 		this.weekdayName=weekdayName;
-		this.startDate=startDate;
-		this.endDate=endDate;
+		this.date=date;
+		//this.endDate=endDate;
 		this.startTime=startTime;
 		this.endTime=endTime;
 		this.createDatetime=createDatetime;
@@ -69,23 +69,14 @@ public class DigiHealthCaresaveStaffAvilabiltyModel {
 	}
 
 
-	public String getStartDate() {
-		return startDate;
+	
+	public String getDate() {
+		return date;
 	}
 
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-
-
-	public String getEndDate() {
-		return endDate;
-	}
-
-
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 

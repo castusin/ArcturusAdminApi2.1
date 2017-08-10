@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -101,6 +102,46 @@ public class SMSCommunication {
          String SenderID = "KAPNFO"; 
          String Type="longsms";
          String Message = "Arcturus :"+firsName +" "+lastName+ "provided feedback" ;
+        // Arcturus : John Vonn provided feedback.
+       //  http://193.105.74.159/api/v3/sendsms/plain?user=internationalsms&password=HZlGhtj&sender=KAPNFO&SMSText=TEST&type=longsms&GSM=17325800762
+         
+         postData += "user=" + Username + "&password=" + Password + "&sender=" +           
+        		 SenderID +"&SMSText=" +Message + "&type="+Type+ "&GSM="+phoneNumber;
+		 URL url = new URL("http://193.105.74.159/api/v3/sendsms/plain?");
+		 HttpURLConnection urlconnection = (HttpURLConnection) url.openConnection();
+         urlconnection.setRequestMethod("POST");
+         urlconnection.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+         urlconnection.setDoOutput(true);
+         OutputStreamWriter out = new            
+         OutputStreamWriter(urlconnection.getOutputStream());
+         out.write(postData);
+         out.close();
+         BufferedReader in = new BufferedReader( new  InputStreamReader(urlconnection.getInputStream()));
+         String decodedString;
+         while ((decodedString = in.readLine()) != null) {
+               retval += decodedString;
+         }
+         in.close();
+         System.out.println("SMS STATUS: "+retval);
+         
+	   	return cisResult;
+	}
+
+	public CISResults sendIncidentReportSMS(String phoneNumber, String message) throws Throwable {
+		// TODO Auto-generated method stub
+
+
+		CISResults cisResult=new CISResults();
+		String postData="";
+         String retval = "";
+         
+         //KAP SYSTEMS PROVIDERS LOGIN DETAILS DEMO ACCOUNT DETAILS
+         // TODO: Remove hard coded data.
+         String Username ="arcturuscare";
+         String Password = "arcturus1@3";
+         String SenderID = "KAPNFO"; 
+         String Type="longsms";
+         String Message = "Arcturus :"+message +"";
         // Arcturus : John Vonn provided feedback.
        //  http://193.105.74.159/api/v3/sendsms/plain?user=internationalsms&password=HZlGhtj&sender=KAPNFO&SMSText=TEST&type=longsms&GSM=17325800762
          
