@@ -10,12 +10,13 @@ import org.springframework.jdbc.core.RowMapper;
  *
  */
 @SuppressWarnings("rawtypes")
-public class DigiHealthCareViewStaffAvilabiltyMapper implements RowMapper{
+public class AddAvailabiltyMapper implements RowMapper{
 public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
-	   DigiHealthCaresaveStaffAvilabiltyModel viewStaff = new DigiHealthCaresaveStaffAvilabiltyModel();
+	AddAvailability viewStaff = new AddAvailability();
 	
-	  /* viewStaff.setAvailabilityId(rs.getString("Availability_id"));
+	  
+	 viewStaff.setAvailabilityId(rs.getString("Availability_id"));
 	   viewStaff.setStaffId(rs.getString("Staff_id"));
 	   viewStaff.setAvailabilityFlag(rs.getString("Availability_flag"));
 	   viewStaff.setWeekdayName(rs.getString("Weekday_name"));
@@ -23,7 +24,8 @@ public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 	   viewStaff.setStartTime(rs.getString("Start_time"));
 	   viewStaff.setEndTime(rs.getString("End_time"));
 	   viewStaff.setCreateDatetime(rs.getString("Create_datetime"));
-	   */
+	 
+	   
 	   
 	   return viewStaff;
 	}
