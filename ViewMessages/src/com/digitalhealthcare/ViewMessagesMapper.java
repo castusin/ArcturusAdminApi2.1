@@ -23,7 +23,7 @@ public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 	   viewMessages.setMessageText(rs.getString("Message_text"));
 	   viewMessages.setPhoneNumber(rs.getString("phoneNumber"));
 	   viewMessages.setEmailId(rs.getString("emailId"));
-	   viewMessages.setCreateDate(rs.getDate("Create_date"));
+	   viewMessages.setCreateDate(rs.getString("Create_date"));
 	   //viewMessages.setAptStarttime(rs.getString("Apt_starttime"));
 	   //viewMessages.setAptEndtime(rs.getString("Apt_endtime"));
 	  // viewMessages.setType(rs.getString("type"));

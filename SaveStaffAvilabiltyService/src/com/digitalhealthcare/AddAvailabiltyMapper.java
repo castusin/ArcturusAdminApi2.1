@@ -18,9 +18,9 @@ public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 	  
 	 viewStaff.setAvailabilityId(rs.getString("Availability_id"));
 	   viewStaff.setStaffId(rs.getString("Staff_id"));
-	   viewStaff.setAvailabilityFlag(rs.getString("Availability_flag"));
+	 
 	   viewStaff.setWeekdayName(rs.getString("Weekday_name"));
-	   viewStaff.setDate(rs.getString("Date"));
+	  
 	   viewStaff.setStartTime(rs.getString("Start_time"));
 	   viewStaff.setEndTime(rs.getString("End_time"));
 	   viewStaff.setCreateDatetime(rs.getString("Create_datetime"));

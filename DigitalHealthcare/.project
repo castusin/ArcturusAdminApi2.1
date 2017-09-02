@@ -66,6 +66,21 @@
 			<location>E:/GitHub/ArcturusAdminApi2.1/DeleteAvailabilityService/src</location>
 		</link>
 		<link>
+			<name>DeleteStaffVacationService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/DeleteStaffVacationService/src</location>
+		</link>
+		<link>
+			<name>EditStaffAvailabilityService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/EditStaffAvailabilityService/src</location>
+		</link>
+		<link>
+			<name>EditStaffVacationService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/EditStaffVacationService/src</location>
+		</link>
+		<link>
 			<name>SaveAdminMessages</name>
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/SaveAdminMessages/src</location>
@@ -76,6 +91,16 @@
 			<location>E:/GitHub/ArcturusAdminApi2.1/SaveStaffAvilabiltyService/src</location>
 		</link>
 		<link>
+			<name>SaveStaffVacation</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/SaveStaffVacation/src</location>
+		</link>
+		<link>
+			<name>SmartAppointmentService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/SmartAppointmentService/src</location>
+		</link>
+		<link>
 			<name>ViewAvailbilityService</name>
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/ViewAvailbilityService/src</location>
@@ -84,6 +109,16 @@
 			<name>ViewMessages</name>
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/ViewMessages/src</location>
+		</link>
+		<link>
+			<name>ViewPatientService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/ViewPatientService/src</location>
+		</link>
+		<link>
+			<name>ViewStaffVacationService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/ViewStaffVacationService/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

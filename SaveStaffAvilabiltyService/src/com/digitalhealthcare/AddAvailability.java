@@ -4,10 +4,7 @@ public class AddAvailability {
 	
 	public String availabilityId;           
 	public String staffId;                   
-	public String availabilityFlag;        
 	public String weekdayName;      
-	public String date;                   
-	//public String endDate;                   
 	public String startTime;                   
 	public String endTime;                  
 	public String createDatetime;       
@@ -16,13 +13,12 @@ public class AddAvailability {
 			super();
 			
 			this.weekdayName=weekdayName;
-			this.date=date;
 			
 			this.startTime=startTime;
 			this.endTime=endTime;
 			this.availabilityId=availabilityId;
 			this.staffId=staffId;
-			this.availabilityFlag=availabilityFlag;
+			
 			this.createDatetime=createDatetime;
 		
 			}
@@ -51,20 +47,6 @@ public class AddAvailability {
 		this.staffId = staffId;
 	}
 
-
-
-	public String getAvailabilityFlag() {
-		return availabilityFlag;
-	}
-
-
-
-	public void setAvailabilityFlag(String availabilityFlag) {
-		this.availabilityFlag = availabilityFlag;
-	}
-
-
-
 	public String getCreateDatetime() {
 		return createDatetime;
 	}
@@ -86,19 +68,6 @@ public class AddAvailability {
 	public void setWeekdayName(String weekdayName) {
 		this.weekdayName = weekdayName;
 	}
-
-
-
-	public String getDate() {
-		return date;
-	}
-
-
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
 
 
 	public String getStartTime() {
@@ -125,7 +94,7 @@ public class AddAvailability {
 
 
 
-		public AddAvailability(){
+	public AddAvailability(){
 			
 		}
 

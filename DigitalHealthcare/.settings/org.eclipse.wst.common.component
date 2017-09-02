@@ -14,6 +14,13 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/SaveAdminMessages"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/CommonCISValidation"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/ViewMessages"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/ViewPatientService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/SmartAppointmentService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/SaveStaffVacation"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/ViewStaffVacationService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/EditStaffAvailabilityService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/EditStaffVacationService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/DeleteStaffVacationService"/>
         <property name="context-root" value="DigitalHealthcare"/>
         <property name="java-output-path" value="/DigitalHealthcare/target/classes"/>
     </wb-module>

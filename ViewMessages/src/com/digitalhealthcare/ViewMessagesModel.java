@@ -11,7 +11,7 @@ public class ViewMessagesModel {
 	String messageText;
 	String phoneNumber;
 	String emailId;
-	Date createDate;
+	String createDate;
 	String aptStarttime;
 	String aptEndtime;
 	//String type;
@@ -38,7 +38,7 @@ public class ViewMessagesModel {
 
 	public ViewMessagesModel(String userId, String patientId,
 			String messageId, String aptId, String messageText,
-			String phoneNumber, String emailId, Date createDate,
+			String phoneNumber, String emailId, String createDate,
 			String aptStarttime, String aptEndtime, String type, String aptWith, String messageType, String title, String firstName, String lastName, String photoUrl, String messageCategory) {
 		super();
 		this.userId = userId;
@@ -204,12 +204,13 @@ public class ViewMessagesModel {
 	}
 
 
-	public Date getCreateDate() {
+	
+	public String getCreateDate() {
 		return createDate;
 	}
 
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
 

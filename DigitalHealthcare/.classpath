@@ -6,6 +6,13 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="DeleteStaffVacationService"/>
+	<classpathentry kind="src" path="EditStaffVacationService"/>
+	<classpathentry kind="src" path="EditStaffAvailabilityService"/>
+	<classpathentry kind="src" path="ViewStaffVacationService"/>
+	<classpathentry kind="src" path="SaveStaffVacation"/>
+	<classpathentry kind="src" path="SmartAppointmentService"/>
+	<classpathentry kind="src" path="ViewPatientService"/>
 	<classpathentry kind="src" path="ViewMessages"/>
 	<classpathentry kind="src" path="CommonCISValidation"/>
 	<classpathentry kind="src" path="SaveAdminMessages"/>

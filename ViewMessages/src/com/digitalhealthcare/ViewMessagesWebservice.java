@@ -1,4 +1,3 @@
-
 package com.digitalhealthcare;
 import org.apache.log4j.Logger;
 

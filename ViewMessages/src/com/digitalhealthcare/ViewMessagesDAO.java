@@ -1,4 +1,3 @@
-
 package com.digitalhealthcare;
 
 import java.sql.Date;
@@ -21,7 +20,7 @@ public class ViewMessagesDAO extends JdbcDaoSupport {
 
 	public CISResults viewMessages(String userId, String patientId,
 			String messageId, String aptId, String messageText,
-			String phoneNumber, String emailId, Date createDate,
+			String phoneNumber, String emailId, String createDate,
 			String messageType, String messageCategory) {
 
 		CISResults cisResults=new CISResults();

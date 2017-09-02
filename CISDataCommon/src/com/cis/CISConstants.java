@@ -51,7 +51,7 @@ public class CISConstants {
 	public static final int totalDay1=0;
 	public static final int totalDay2=1;
 	public static final String ADMINPHONENUMBER="167846213390";
-	public static final String ADMINEMAILID="prasad9620@gmail.com";
+	public static final String ADMINEMAILID="darshan2108@gmail.com";
 	public static final String EMAILHOST="castusinfo.com";
 	public static final String EMAILUSERNAME="arcturus@castusinfo.com";
 	public static final String EMAILPASSWORD="arcturus";
@@ -59,8 +59,22 @@ public class CISConstants {
 	public static final String SMS_FAILED = "Sms failed to delivery ";
 	public static final String MAIL_FAILED = "Email failed to delivery ";
 	public static final String SUBJECT ="Arcturus";
+	public static final String INCIDENTMISSEDSUBJECT ="Incident Report - Missed Appointment";
+	public static final String INCIDENTCOMPLAINTSUBJECT ="Incident Report - Compliant";
+	public static final String INCIDENTSUPPLIESSUBJECT ="Need supplies";
 	public static final String CANCEL ="cancelled";
 	public static final String RECIEVED ="Recieved message";
+	public static final String SENT ="Sent Message";
+	
+	public static final String INCIDENTTYPEMISSED="Missed Appointment";
+	public static final String INCIDENTTYPECOMPLAINT="Complaint";
+	public static final String INCIDENTTYPESUPPLIES="Supplies";
+	
+	public static final String REFERSUBJECT ="Refer a Friend";
+	public static final String ADMIN_MESSAGES ="Message from Admin";
+	
+	public static final String CNA ="CNA";
+	public static final String DIRECTOREMAIL ="prasad9620@gmail.com";
 	public CISConstants() {
 		
 	}

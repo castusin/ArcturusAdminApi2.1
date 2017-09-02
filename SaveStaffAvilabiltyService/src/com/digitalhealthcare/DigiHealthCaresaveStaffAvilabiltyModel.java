@@ -1,113 +1,32 @@
 
 package com.digitalhealthcare;
 
+import java.util.List;
+
 
 
 public class DigiHealthCaresaveStaffAvilabiltyModel {
 	
-	public String availabilityId;           
-	public String staffId;                   
-	public String availabilityFlag;        
-	public String weekdayName;      
-	public String date;                   
-	//public String endDate;                   
-	public String startTime;                   
-	public String endTime;                  
-	public String createDatetime;    
-
-    public DigiHealthCaresaveStaffAvilabiltyModel(String availabilityId, String staffId, String availabilityFlag, String weekdayName, String startTime, String endTime, String createDatetime, String date) {
+	
+	public List<AddAvailability> staffList;
+	
+    public DigiHealthCaresaveStaffAvilabiltyModel(List<AddAvailability> staffList) {
 		super();
-		this.availabilityId=availabilityId;
-		this.staffId=staffId;
-		this.availabilityFlag=availabilityFlag;
-		this.weekdayName=weekdayName;
-		this.date=date;
-		//this.endDate=endDate;
-		this.startTime=startTime;
-		this.endTime=endTime;
-		this.createDatetime=createDatetime;
+		this.staffList=staffList;
 		}
 
 
-	public String getAvailabilityId() {
-		return availabilityId;
-	}
-
-
-	public void setAvailabilityId(String availabilityId) {
-		this.availabilityId = availabilityId;
-	}
-
-
-	public String getStaffId() {
-		return staffId;
-	}
-
-
-	public void setStaffId(String staffId) {
-		this.staffId = staffId;
-	}
-
-
-	public String getAvailabilityFlag() {
-		return availabilityFlag;
-	}
-
-
-	public void setAvailabilityFlag(String availabilityFlag) {
-		this.availabilityFlag = availabilityFlag;
-	}
-
-
-	public String getWeekdayName() {
-		return weekdayName;
-	}
-
-
-	public void setWeekdayName(String weekdayName) {
-		this.weekdayName = weekdayName;
-	}
-
-
 	
-	public String getDate() {
-		return date;
+	public List<AddAvailability> getStaffList() {
+		return staffList;
 	}
 
 
-	public void setDate(String date) {
-		this.date = date;
+
+	public void setStaffList(List<AddAvailability> staffList) {
+		this.staffList = staffList;
 	}
 
-
-	public String getStartTime() {
-		return startTime;
-	}
-
-
-	public void setStartTime(String startTime) {
-		this.startTime = startTime;
-	}
-
-
-	public String getEndTime() {
-		return endTime;
-	}
-
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
-
-	public String getCreateDatetime() {
-		return createDatetime;
-	}
-
-
-	public void setCreateDatetime(String createDatetime) {
-		this.createDatetime = createDatetime;
-	}
 
 
 	public DigiHealthCaresaveStaffAvilabiltyModel(){

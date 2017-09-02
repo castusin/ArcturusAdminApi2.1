@@ -16,7 +16,7 @@ import com.validation.CommonCISValidation;
 
 
 /**
- * Rest Controller : create schedule Service
+ * Rest Controller : create staff schedule Service
  * 
  * @author Castus Info Solutions
  * 

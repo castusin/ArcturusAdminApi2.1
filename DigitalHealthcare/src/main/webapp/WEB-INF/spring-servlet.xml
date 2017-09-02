@@ -33,6 +33,34 @@
 		<property name="dataSource" ref="ds" />
 	</bean>
 	
+	<bean id="viewPatients" class="com.digitalhealthcare.DigiHealthCareViewPatientsServiceDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="SmartAppointment" class="com.digitalhealthcare.SmartAppointmentDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="SaveStaffVacation" class="com.digitalhealthcare.DigiHealthCaresaveStaffVacationDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="ViewStaffVacation" class="com.digitalhealthcare.DigiHealthCareViewStaffVacationDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="EditStaffAvilabilty" class="com.digitalhealthcare.DigiHealthCareEditStaffAvilabiltyDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="EditStaffVacation" class="com.digitalhealthcare.DigiHealthCareEditStaffVacationDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
+	<bean id="DeleteStaffVacation" class="com.digitalhealthcare.DigiHealthCareDeleteStaffVacationDAO">
+		<property name="dataSource" ref="ds" />
+	</bean>
+	
 <!-- Development  DB connections     --> 
 
  <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  

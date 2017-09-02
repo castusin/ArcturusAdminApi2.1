@@ -25,7 +25,7 @@ public class DigiHealthCareSaveAdminMessagesDAO extends JdbcDaoSupport {
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 getJdbcTemplate().update(DigiHealthCareSaveAdminMessagesQuery.SQL_SAVEADMINMESSAGES,messageId,aptId,patientId,userId,phoneNumber,emailId,messageText,createDate,messageType);
+			 getJdbcTemplate().update(DigiHealthCareSaveAdminMessagesQuery.SQL_SAVEADMINMESSAGES,messageId,aptId,patientId,userId,phoneNumber,emailId,messageText,createDate,messageType,messageCategory);
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("save staff availability  query time:: " +result);

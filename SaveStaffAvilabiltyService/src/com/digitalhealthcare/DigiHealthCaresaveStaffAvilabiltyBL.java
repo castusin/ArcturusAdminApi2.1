@@ -43,20 +43,41 @@ public class DigiHealthCaresaveStaffAvilabiltyBL {
          testServiceTime seriveTimeCheck=new testServiceTime();
          String serviceStartTime=time.getTimeZone();
          
-         // generating id
+          String starttime="";
+          String endtime="";
+          String availFlag="";
+          String staffid="";
+          String weekName="";
+          String creationtime="";
+          String date="";
+          String availId="";
          
-         String sessionId = UUID.randomUUID().toString();
-         String availabilityId=DigestUtils.sha1Hex(sessionId);
-         String upToNCharacters = availabilityId.substring(0, Math.min(availabilityId.length(), 8));
-         availabilityId=upToNCharacters;
-        
-          Calendar currentdate = Calendar.getInstance();
-          DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
-          TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
-          formatter.setTimeZone(obj);
-          String createDate=time.getTimeZone();
+          int aptListSize=saveStaff.getStaffList().size();
+          for (int i = 0; i< aptListSize; i++)
+		  {
+        	  String sessionId = UUID.randomUUID().toString();
+              String availabilityId=DigestUtils.sha1Hex(sessionId);
+              String upToNCharacters = availabilityId.substring(0, Math.min(availabilityId.length(), 8));
+              availabilityId=upToNCharacters;
+        	  //availId= saveStaff.getStaffList().get(i).availabilityId;
+        	  
+			  
+			  staffid =  saveStaff.getStaffList().get(i).staffId;
+			  weekName =  saveStaff.getStaffList().get(i).weekdayName;
+			  starttime =  saveStaff.getStaffList().get(i).startTime;
+			  endtime =  saveStaff.getStaffList().get(i).endTime;
+			 // creationtime =  saveStaff.getStaffList().get(i).createDatetime;
+			  Calendar currentdate = Calendar.getInstance();
+	          DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
+	          TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
+	          formatter.setTimeZone(obj);
+	          String createDate=time.getTimeZone();
+			  cisResults = saveStaffAvilabiltyDAO.saveStaffAvailability(availabilityId,staffid,weekName,starttime,endtime,createDate);
+		         
+			  
+		  }
       
-          cisResults = saveStaffAvilabiltyDAO.saveStaffAvailability(availabilityId,saveStaff.getStaffId(),saveStaff.getAvailabilityFlag(),saveStaff.getWeekdayName(),saveStaff.getDate(),saveStaff.getStartTime(),saveStaff.getEndTime(),createDate);
+         // cisResults = saveStaffAvilabiltyDAO.saveStaffAvailability(availabilityId,saveStaff.getStaffId(),saveStaff.getAvailabilityFlag(),saveStaff.getWeekdayName(),saveStaff.getDate(),saveStaff.getStartTime(),saveStaff.getEndTime(),createDate);
               
         // Capture Service End time
           String serviceEndTime=time.getTimeZone();

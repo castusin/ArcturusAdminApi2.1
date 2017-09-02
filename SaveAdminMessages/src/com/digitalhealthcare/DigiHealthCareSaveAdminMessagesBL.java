@@ -37,7 +37,7 @@ public class DigiHealthCareSaveAdminMessagesBL {
         
         final Logger logger = Logger.getLogger(DigiHealthCareSaveAdminMessagesBL.class);
         // Capture service Start time
-        
+        EmailCommunication sendMail=new EmailCommunication();
          CISResults cisResults=new CISResults();
          TimeCheck time=new TimeCheck();
          testServiceTime seriveTimeCheck=new testServiceTime();
@@ -55,10 +55,19 @@ public class DigiHealthCareSaveAdminMessagesBL {
           TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
           formatter.setTimeZone(obj);
           String createDate=time.getTimeZone();
-         
+          String emailId=saveMessages.getEmailId();
+          String message=saveMessages.getMessageText();
+          String cc= CISConstants.EMAILUSERNAME ;
+          String bcc= CISConstants.ADMINEMAILID ;
+          String messageCategory=CISConstants.ADMIN_MESSAGES;
+          cisResults = saveAdminMessagesDAO.saveAdminMessages(saveMessages.getMessageId(),saveMessages.getAptId(),saveMessages.getPatientId(),saveMessages.getUserId(),saveMessages.getPhoneNumber(),saveMessages.getEmailId(),saveMessages.getMessageText(),createDate,saveMessages.getMessageType(),messageCategory);
       
-          cisResults = saveAdminMessagesDAO.saveAdminMessages(saveMessages.getMessageId(),saveMessages.getAptId(),saveMessages.getPatientId(),saveMessages.getUserId(),saveMessages.getPhoneNumber(),saveMessages.getEmailId(),saveMessages.getMessageText(),createDate,saveMessages.getMessageType(),saveMessages.getMessageCategory());
-        // Capture Service End time
+          if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_SUCCESS))
+		   {
+			  cisResults=sendMail.sendAdminreplyMail(emailId,message,cc,bcc);
+		   }
+          
+          // Capture Service End time
           String serviceEndTime=time.getTimeZone();
           long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
           logger.info("Database time for save staff availability  service:: " +result );

@@ -13,8 +13,8 @@ import com.cis.testServiceTime;
 public class DigiHealthCaresaveStaffAvilabiltyDAO extends JdbcDaoSupport {
 
 	public CISResults saveStaffAvailability(String availabilityId,
-			String staffId, String availabilityFlag, String weekdayName,
-			String date, String startTime, String endTime,
+			String staffId,  String weekdayName,
+			String startTime, String endTime,
 			String createDate) {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
@@ -24,7 +24,7 @@ public class DigiHealthCaresaveStaffAvilabiltyDAO extends JdbcDaoSupport {
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 getJdbcTemplate().update(DigiHealthCaresaveStaffAvilabiltyQuery.SQL_SAVESTAFFAVAILABILITY,availabilityId,staffId,availabilityFlag,weekdayName,date,startTime,endTime,createDate);
+			 getJdbcTemplate().update(DigiHealthCaresaveStaffAvilabiltyQuery.SQL_SAVESTAFFAVAILABILITY,availabilityId,staffId,weekdayName,startTime,endTime,createDate);
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("save staff availability  query time:: " +result);
