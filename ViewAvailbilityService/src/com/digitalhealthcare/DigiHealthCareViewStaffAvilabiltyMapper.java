@@ -24,7 +24,7 @@ public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 	  
 	   viewStaff.setStartTime(rs.getString("Start_time"));
 	   viewStaff.setEndTime(rs.getString("End_time"));
-	   viewStaff.setCreateDatetime(rs.getString("Create_datetime"));
+	   //viewStaff.setCreateDatetime(rs.getString("Create_datetime"));
 	   
 	   
 	   return viewStaff;
