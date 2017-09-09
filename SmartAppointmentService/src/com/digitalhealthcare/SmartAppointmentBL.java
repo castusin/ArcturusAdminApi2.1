@@ -2,28 +2,18 @@
 package com.digitalhealthcare;
 
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
-import java.util.UUID;
 
-
-
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
-import com.cis.EmailCommunication;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
 
@@ -43,68 +33,102 @@ public class SmartAppointmentBL {
          TimeCheck time=new TimeCheck();
          testServiceTime seriveTimeCheck=new testServiceTime();
          String serviceStartTime=time.getTimeZone();
-       
+        
          String serviceType=smartAppointment.getServiceType();           
-         String startDateTime=smartAppointment.getStartDateTime();  
-         SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd");
-         Date startdate=simpleDate.parse(startDateTime);
+         String startTime="9:00:00 am";  
+         String endTime="10:00:00 am";
+         String startDateTime=smartAppointment.getStartDateTime();
          
-       //  String reportDate = simpleDate.format(startdate);
-
+       
          String patientId=smartAppointment.getPatientId();        
          String aptWith=smartAppointment.getAptWith();                   
-         String staffId=smartAppointment.getStaffId();  
+         int staffId=smartAppointment.getStaffId();  
+         
+         // week dates from  a given date
+         SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy HH:hh:ss");
+    	 Date startdate = sdf.parse(startDateTime);
+         Calendar cal = Calendar.getInstance();
+         cal.setTime(startdate );//Set specific Date if you want to
+         StringBuilder stringBuilder = new StringBuilder();
+         for(int p = 0; p < 7; p++){
+             System.out.println(cal.getTime());
+             cal.add(Calendar.DATE, 1);
+            // StringBuilder stringBuilder = new StringBuilder();
+			 stringBuilder.append(cal.getTime());
+			
+        
+         String finalString = stringBuilder.toString();
+         
+         // staff with service type
+         List<StaffModel> staffList = smartAppointmentDAO.getStaffAvailable(serviceType);
+         
+         ArrayList<Object> staffDetails = new ArrayList<Object>();
+		 for (int i = 0; i < staffList.size(); i++) {
+			 
+			 StaffModel staffModel = new StaffModel();
+			 
+			 String servicetype= staffList.get(i).serviceType;
+			 int staffid=staffList.get(i).staffId;
+			 String staffFirstname=staffList.get(i).fName;
+			 String staffLastname=staffList.get(i).lName;
+			
+			 staffModel.setServiceType(servicetype);
+			 staffModel.setStaffId(staffid);
+			 staffModel.setfName(staffFirstname);
+			 staffModel.setlName(staffLastname);
+		
+			 staffDetails.add(staffModel);
+			 cisResults = smartAppointmentDAO.getStaffVacation(staffid,finalString);
+			 StringBuilder stringBuilders = new StringBuilder();
+			 if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
+			   {
+				  	cisResults = smartAppointmentDAO.getStaffAppt(staffid,finalString);
+				 	
+				  	if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE)){
+				 		
+				 		
+						 stringBuilders.append(staffid);
+						
+				 	}
+				  		String finalStrings = stringBuilders.toString();
+				  		System.out.println(finalStrings);
+			   }
+				 
+			}
+			 
+		 }
+         
          
          
          cisResults = smartAppointmentDAO.getPatientDetails(patientId);
          
          PatientModel  patientLat=(PatientModel)cisResults.getResultObject();
-		 	float patientLattitude=patientLat.getLattitude();
+		 float patientLattitude=patientLat.getLattitude();
 		 
-		 	PatientModel  patientLong=(PatientModel)cisResults.getResultObject();
-			float patientLongitude=patientLong.getLongitude();
+		 PatientModel  patientLong=(PatientModel)cisResults.getResultObject();
+		 float patientLongitude=patientLong.getLongitude();
 			
-        cisResults = smartAppointmentDAO.getStaffDetails(staffId);
+         cisResults = smartAppointmentDAO.getStaffDetails(staffId);
          
-            StaffModel  staffLat=(StaffModel)cisResults.getResultObject();
-			float staffLattitude=staffLat.getLattitude();
+         StaffModel  staffLat=(StaffModel)cisResults.getResultObject();
+		 float staffLattitude=staffLat.getLattitude();
 		 
-			StaffModel  stafffLong=(StaffModel)cisResults.getResultObject();
-			float staffLongitude=stafffLong.getLongitude();
+	     StaffModel  stafffLong=(StaffModel)cisResults.getResultObject();
+		 float staffLongitude=stafffLong.getLongitude();
 			
-			double earthRadius = 6371000; //meters
-		    double dLat = Math.toRadians(staffLattitude-patientLattitude);
-		    double dLng = Math.toRadians(staffLongitude-patientLongitude);
-		    double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+			 
+		 double earthRadius = 6371000; //meters
+		 double dLat = Math.toRadians(staffLattitude-patientLattitude);
+		 double dLng = Math.toRadians(staffLongitude-patientLongitude);
+		 double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
 		               Math.cos(Math.toRadians(patientLattitude)) * Math.cos(Math.toRadians(staffLattitude)) *
 		               Math.sin(dLng/2) * Math.sin(dLng/2);
-		    double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-		    float dist = (float) (earthRadius * c);
-		    System.out.println(dist);
-		/*	Location loc1 = new Location("");
-			loc1.setLatitude(lat1);
-			loc1.setLongitude(lon1);
-
-			Location loc2 = new Location("");
-			loc2.setLatitude(lat2);
-			loc2.setLongitude(lon2);
-
-			float distanceInMeters = loc1.distanceTo(loc2);*/
-         
-         SimpleDateFormat simpleDateformat = new SimpleDateFormat("E"); // the day of the week abbreviated
-         System.out.println(simpleDateformat.format(startdate));
-  
-        
-         
-         if(serviceType.equalsIgnoreCase(CISConstants.CNA)){
-        	   
-        	   smartAppointment.setAptWith(aptWith);
-        	   smartAppointment.setStartDateTime(startDateTime);
-        	   smartAppointment.setPatientId(patientId);
-        	   smartAppointment.setStaffId(staffId);
-          }
-          //  cisResults = smartAppointmentDAO.smartAppointmentService(serviceType,patientId,aptWith,staffId,startDateTime);
-         // Capture Service End time
+		 double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		 float dist = (float) (earthRadius * c);
+		 System.out.println(dist);
+		
+       	    
+		    // Capture Service End time
          String serviceEndTime=time.getTimeZone();
          long result=seriveTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
          logger.info("Database time for save staff availability  service:: " +result );

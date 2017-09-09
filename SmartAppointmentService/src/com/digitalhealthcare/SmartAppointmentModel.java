@@ -8,21 +8,33 @@ public class SmartAppointmentModel {
 	    
 	                   
 	public String aptWith;                   
-	public String staffId;                   
+	public int staffId;                   
 	//public List<StartTime> startDateTime;  
 	public String startDateTime;
-    public SmartAppointmentModel(String serviceType, String startDate, String patientId, String startDateTime, String endDateTime, String aptWith, String staffId) {
+	public String endDateTime;
+    public SmartAppointmentModel(String serviceType, String startDate, String patientId, String startDateTime, String endDateTime, String aptWith, int staffId) {
 		super();
 		this.serviceType=serviceType;
 		this.patientId=patientId;
 		this.startDateTime=startDateTime;
 		this.aptWith=aptWith;
 		this.staffId=staffId;
+		this.endDateTime=endDateTime;
 		}
 
 
 	public String getServiceType() {
 		return serviceType;
+	}
+
+
+	public String getEndDateTime() {
+		return endDateTime;
+	}
+
+
+	public void setEndDateTime(String endDateTime) {
+		this.endDateTime = endDateTime;
 	}
 
 
@@ -57,12 +69,16 @@ public class SmartAppointmentModel {
 	}
 
 
-	public String getStaffId() {
+
+
+
+
+	public int getStaffId() {
 		return staffId;
 	}
 
 
-	public void setStaffId(String staffId) {
+	public void setStaffId(int staffId) {
 		this.staffId = staffId;
 	}
 

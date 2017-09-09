@@ -22,7 +22,10 @@ public class StaffModel {
 	
 	float lattitude;
 	float longitude;
-    public StaffModel(int staffId, String fName, String lName, String emailId, String serviceType, String phone1, String phone2, String address1, String address2, String city, String country, String state, int zipcode, String activeInd, Date createDate, String county, float lattitude, float longitude ) {
+	
+	String startTime;
+	String endTime;
+    public StaffModel(int staffId, String fName, String lName, String emailId, String serviceType, String phone1, String phone2, String address1, String address2, String city, String country, String state, int zipcode, String activeInd, Date createDate, String county, float lattitude, float longitude, String startTime, String endTime ) {
 		super();
 		this.staffId=staffId;
 		this.fName=fName;
@@ -43,11 +46,46 @@ public class StaffModel {
 		this.lattitude=lattitude;
 		this.longitude=longitude;
 		
+		this.startTime=startTime;
+		this.endTime=endTime;
+		
 	}
 
 
 
 	
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+
+
+
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+
+
+
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+
+
+
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+
+
+
 
 	public float getLattitude() {
 		return lattitude;
