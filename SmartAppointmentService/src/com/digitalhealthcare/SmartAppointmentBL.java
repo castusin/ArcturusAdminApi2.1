@@ -71,36 +71,65 @@ public class SmartAppointmentBL {
 			 int staffid=staffList.get(i).staffId;
 			 String staffFirstname=staffList.get(i).fName;
 			 String staffLastname=staffList.get(i).lName;
-			
+			 String weekday=staffList.get(i).weekday;
 			 staffModel.setServiceType(servicetype);
 			 staffModel.setStaffId(staffid);
 			 staffModel.setfName(staffFirstname);
 			 staffModel.setlName(staffLastname);
-		
+			 staffModel.setWeekday(weekday);
 			 staffDetails.add(staffModel);
 			 cisResults = smartAppointmentDAO.getStaffVacation(staffid,finalString);
-			 StringBuilder stringBuilders = new StringBuilder();
+			 
 			 if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
 			   {
 				  	cisResults = smartAppointmentDAO.getStaffAppt(staffid,finalString);
 				 	
 				  	if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE)){
+				  		
+				  		 ArrayList<Object> appointments = new ArrayList<Object>();
+			             for (int s = 0; s < staffList.size(); s++) {
+			                 
+			            	 StaffModel staff = new StaffModel();
+			            	 
+			            	 
+			            	 
+			            	 String Servicetype= staffList.get(s).serviceType;
+			    			 int Staffid=staffList.get(s).staffId;
+			    			 String StaffFirstname=staffList.get(s).fName;
+			    			 String StaffLastname=staffList.get(s).lName;
+			    			 String StartTime=staffList.get(s).startTime;
+			    			 String EndTime=staffList.get(s).endTime;
+			    			 String weekDay=staffList.get(s).weekday;
+			    			 staff.setServiceType(Servicetype);
+			    			 staff.setStaffId(Staffid);
+			    			 staff.setfName(StaffFirstname);
+			    			 staff.setlName(StaffLastname);
+			    			 staff.setStartTime(StartTime);
+			    			 staff.setWeekday(weekDay);
+			                 staff.setEndTime(EndTime);
+			            
+			             appointments.add(staff);
+					}
+					
+					 cisResults.setResultObject(appointments);
 				 		
-				 		
-						 stringBuilders.append(staffid);
-						
+						/* stringBuilders.append(staffid);
+						 stringBuilders.append(aptWith);
+						 stringBuilders.append(startDateTime);*/
+						 
 				 	}
-				  		String finalStrings = stringBuilders.toString();
+				  		/*String finalStrings = stringBuilders.toString();
 				  		System.out.println(finalStrings);
+				  		cisResults.setResultObject(finalStrings);*/
 			   }
 				 
 			}
 			 
 		 }
          
+         return cisResults;
          
-         
-         cisResults = smartAppointmentDAO.getPatientDetails(patientId);
+        /* cisResults = smartAppointmentDAO.getPatientDetails(patientId);
          
          PatientModel  patientLat=(PatientModel)cisResults.getResultObject();
 		 float patientLattitude=patientLat.getLattitude();
@@ -134,7 +163,7 @@ public class SmartAppointmentBL {
          logger.info("Database time for save staff availability  service:: " +result );
          
          return cisResults;
-         }
-
-	
+         }*/
+        
+     }
 }

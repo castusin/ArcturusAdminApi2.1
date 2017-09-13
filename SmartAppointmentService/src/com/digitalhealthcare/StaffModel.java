@@ -25,7 +25,9 @@ public class StaffModel {
 	
 	String startTime;
 	String endTime;
-    public StaffModel(int staffId, String fName, String lName, String emailId, String serviceType, String phone1, String phone2, String address1, String address2, String city, String country, String state, int zipcode, String activeInd, Date createDate, String county, float lattitude, float longitude, String startTime, String endTime ) {
+	
+	String weekday;
+    public StaffModel(int staffId, String fName, String lName, String emailId, String serviceType, String phone1, String phone2, String address1, String address2, String city, String country, String state, int zipcode, String activeInd, Date createDate, String county, float lattitude, float longitude, String startTime, String endTime, String weekday ) {
 		super();
 		this.staffId=staffId;
 		this.fName=fName;
@@ -49,11 +51,28 @@ public class StaffModel {
 		this.startTime=startTime;
 		this.endTime=endTime;
 		
+		this.weekday=weekday;
 	}
 
 
 
 	
+
+	public String getWeekday() {
+		return weekday;
+	}
+
+
+
+
+
+	public void setWeekday(String weekday) {
+		this.weekday = weekday;
+	}
+
+
+
+
 
 	public String getStartTime() {
 		return startTime;

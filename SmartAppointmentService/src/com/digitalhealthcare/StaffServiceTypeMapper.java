@@ -17,6 +17,7 @@ public class StaffServiceTypeMapper implements RowMapper{
 		getStafflist.setStartTime(rs.getString("Start_time"));
 		getStafflist.setEndTime(rs.getString("End_time"));
 		getStafflist.setServiceType(rs.getString("Servicetype"));
+		getStafflist.setWeekday(rs.getString("Weekday_name"));
 		
 		return getStafflist;
 	}
