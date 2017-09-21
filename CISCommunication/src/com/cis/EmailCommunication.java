@@ -95,7 +95,7 @@ public class EmailCommunication {
                 "</html>";
 	String subject = CISConstants.REFERSUBJECT;
 	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject,cc,bcc);
+		 String result = sendMailWithAuth(CISConstants.PRODEMAILHOST,CISConstants.PRODEMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject,cc,bcc);
 	  
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -139,7 +139,7 @@ public class EmailCommunication {
                 "</html>";
 		String subject = CISConstants.INCIDENTMISSEDSUBJECT;
 	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,directorEmail, msg, subject,cc,bcc);
+		 String result = sendMailWithAuth(CISConstants.PRODEMAILHOST,CISConstants.PRODEMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,directorEmail, msg, subject,cc,bcc);
 	  
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -181,7 +181,7 @@ public class EmailCommunication {
                 "</html>";
 		String subject = CISConstants.INCIDENTCOMPLAINTSUBJECT;
 	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,directorEmail, msg, subject,cc,bcc);
+		 String result = sendMailWithAuth(CISConstants.PRODEMAILHOST,CISConstants.PRODEMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,directorEmail, msg, subject,cc,bcc);
 	  
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -224,7 +224,7 @@ public class EmailCommunication {
                 "</html>";
 		String subject = CISConstants.INCIDENTSUPPLIESSUBJECT;
 	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,directorEmail, msg, subject,cc,bcc);
+		 String result = sendMailWithAuth(CISConstants.PRODEMAILHOST,CISConstants.PRODEMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,directorEmail, msg, subject,cc,bcc);
 	  
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -239,7 +239,7 @@ public class EmailCommunication {
 			String bcc) {
 
 
-		String emailId=CISConstants.ADMINEMAILID;
+		//String emailId=CISConstants.ADMINEMAILID;
 		CISResults cisResult = new CISResults();
 		
 		String msg="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
@@ -273,7 +273,7 @@ public class EmailCommunication {
                 "</html>";
 	String subject = CISConstants.REFERSUBJECT;
 	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject,cc,bcc);
+		 String result = sendMailWithAuth(CISConstants.PRODEMAILHOST,CISConstants.PRODEMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,friendEmail, msg, subject,cc,bcc);
 	  
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -317,7 +317,7 @@ public class EmailCommunication {
                 "</html>";
 	String subject = CISConstants.SUBJECT;
 	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject,cc,bcc);
+		 String result = sendMailWithAuth(CISConstants.PRODEMAILHOST,CISConstants.PRODEMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject,cc,bcc);
 	  
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -366,7 +366,7 @@ public class EmailCommunication {
                 "</html>";
 	String subject = CISConstants.REFERSUBJECT;
 	 try {
-		 String result = sendMailWithAuth(CISConstants.EMAILHOST,CISConstants.EMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject,cc,bcc);
+		 String result = sendMailWithAuth(CISConstants.PRODEMAILHOST,CISConstants.PRODEMAILUSERNAME,CISConstants.EMAILPASSWORD,CISConstants.PORT,emailId, msg, subject,cc,bcc);
 	  
 	 } catch (Exception e) {
 		// TODO Auto-generated catch block

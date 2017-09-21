@@ -21,6 +21,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/EditStaffAvailabilityService"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/EditStaffVacationService"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/DeleteStaffVacationService"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/LoginService"/>
         <property name="context-root" value="DigitalHealthcare"/>
         <property name="java-output-path" value="/DigitalHealthcare/target/classes"/>
     </wb-module>

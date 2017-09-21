@@ -112,7 +112,7 @@ public class SmartAppointmentBL {
 					}
 					
 					 cisResults.setResultObject(appointments);
-				 		
+				 	 cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS );
 						/* stringBuilders.append(staffid);
 						 stringBuilders.append(aptWith);
 						 stringBuilders.append(startDateTime);*/

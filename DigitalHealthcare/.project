@@ -81,6 +81,11 @@
 			<location>E:/GitHub/ArcturusAdminApi2.1/EditStaffVacationService/src</location>
 		</link>
 		<link>
+			<name>LoginService</name>
+			<type>2</type>
+			<location>E:/GitHub/ArcturusAdminApi2.1/LoginService/src</location>
+		</link>
+		<link>
 			<name>SaveAdminMessages</name>
 			<type>2</type>
 			<location>E:/GitHub/ArcturusAdminApi2.1/SaveAdminMessages/src</location>
