@@ -71,14 +71,14 @@ public class SmartAppointmentDAO extends JdbcDaoSupport {
    		return cisResults; 
 	}
 
-	public List<StaffModel> getStaffAvailable(String serviceType) {
+	public List<StaffModel> getStaffAvailable(String serviceType, String startHour, String endHour, String startDateTime) {
 		// TODO Auto-generated method stub
 
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		
 		List<StaffModel> getstaffList=null;
-		Object[] inputs = new Object[]{serviceType};
+		Object[] inputs = new Object[]{serviceType,startHour,endHour,startDateTime};
 		try{
 			// Capture service Start time
 			 TimeCheck time=new TimeCheck();
@@ -138,7 +138,35 @@ public class SmartAppointmentDAO extends JdbcDaoSupport {
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 StaffModel res=(StaffModel)getJdbcTemplate().queryForObject(SmartAppointmentQuery.SQL_GETSTAFFVACATION,inputs,new StaffVacationMapper());
+			 StaffModel res=(StaffModel)getJdbcTemplate().queryForObject(SmartAppointmentQuery.SQL_GETSTAFFAPPOINTMENT,inputs,new StaffVacationMapper());
+			 cisResults.setResultObject(res);
+			 String serviceEndTime=time.getTimeZone();
+			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 logger.info("staff email query time:: " +result);
+			
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+		
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			//cisResults.setErrorMessage("Failed to get  Data");
+		}
+   		return cisResults; 
+	}
+
+	public CISResults getPatientAvailable(String patientId, String aptTime) {
+		// TODO Auto-generated method stub
+
+
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		
+		Object[] inputs = new Object[]{patientId,aptTime};
+		try{
+			// Capture service Start time
+			 TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			 PatientModel res=(PatientModel)getJdbcTemplate().queryForObject(SmartAppointmentQuery.SQL_GETPATIENTAPPOINTMENT,inputs,new PatientAppointmentMapper());
 			 cisResults.setResultObject(res);
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
