@@ -30,7 +30,7 @@ public class DigiHealthCareViewstaffAvilabiltyRest {
 	
 	@RequestMapping(value="/viewstaffAvilabilty",method=RequestMethod.GET,produces={"application/json"})
 
-	 public String viewstaffAvilabilty(HttpServletRequest request,@RequestParam ("staffId") String staffId){
+	 public String viewstaffAvilabilty(HttpServletRequest request,@RequestParam ("staffId") String staffId) throws Throwable{
 		    Logger logger = Logger.getLogger(DigiHealthCareViewstaffAvilabiltyRest.class);
 			
             CommonCISValidation CommonCISValidation=new CommonCISValidation();

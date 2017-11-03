@@ -104,7 +104,7 @@ public class SmartAppointmentDAO extends JdbcDaoSupport {
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		StaffModel getstaffEmail=new StaffModel();
-		Object[] inputs = new Object[]{staffid,startDateTime};
+		Object[] inputs = new Object[]{startDateTime,startDateTime};
 		try{
 			// Capture service Start time
 			 TimeCheck time=new TimeCheck();

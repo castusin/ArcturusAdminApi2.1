@@ -18,9 +18,10 @@ import com.cis.testServiceTime;
  */
 public class DigiHealthCareViewStaffAvilabiltyDAO extends JdbcDaoSupport {
 
-	public CISResults viewstaffAvilabilty(String staffId){
+	public List<AddAvailability> viewstaffAvilabilty(String staffId){
 
 		CISResults cisResults=new CISResults();
+		List<AddAvailability> availableList=null;
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		Logger logger = Logger.getLogger(DigiHealthCareViewStaffAvilabiltyDAO.class);
 		Object[] inputs = new Object[]{staffId};
@@ -29,10 +30,10 @@ public class DigiHealthCareViewStaffAvilabiltyDAO extends JdbcDaoSupport {
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 List viewStaffAvailability=getJdbcTemplate().query(DigiHealthCareViewStaffAvilabiltyQuery.SQL_VIEWSTAFFAVAILABILITY,inputs,new DigiHealthCareViewStaffAvilabiltyMapper());
+			 availableList=getJdbcTemplate().query(DigiHealthCareViewStaffAvilabiltyQuery.SQL_VIEWSTAFFAVAILABILITY,inputs,new DigiHealthCareViewStaffAvilabiltyMapper());
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
-			 cisResults.setResultObject(viewStaffAvailability);
+			// cisResults.setResultObject(availableList);
 			 logger.info("view messages query time:: " +result);
 			
 		} catch (DataAccessException e) {
@@ -41,7 +42,7 @@ public class DigiHealthCareViewStaffAvilabiltyDAO extends JdbcDaoSupport {
 			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
 			cisResults.setErrorMessage("Failed to get  Data");
 		}
-   		return cisResults; 
+   		return availableList; 
 	}
 
 

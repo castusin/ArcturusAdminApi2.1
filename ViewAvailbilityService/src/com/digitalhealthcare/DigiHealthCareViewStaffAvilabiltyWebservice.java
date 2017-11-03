@@ -9,7 +9,7 @@ import com.cis.CISResults;
  */
 public class DigiHealthCareViewStaffAvilabiltyWebservice {
 
-	public CISResults viewstaffAvilabilty(String staffId) {
+	public CISResults viewstaffAvilabilty(String staffId) throws Throwable {
 		DigiHealthCareViewStaffAvilabiltyBL viewStaffAvilabiltyBL = new DigiHealthCareViewStaffAvilabiltyBL();
 		 Logger logger = Logger.getLogger(DigiHealthCareViewStaffAvilabiltyWebservice.class);
 		 CISResults cisResult = viewStaffAvilabiltyBL.viewstaffAvilabilty(staffId);

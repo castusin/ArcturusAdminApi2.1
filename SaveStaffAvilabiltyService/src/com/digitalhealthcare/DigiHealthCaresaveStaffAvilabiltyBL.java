@@ -65,13 +65,34 @@ public class DigiHealthCaresaveStaffAvilabiltyBL {
 			  staffid =  saveStaff.getStaffList().get(i).staffId;
 			  weekName =  saveStaff.getStaffList().get(i).weekdayName;
 			  starttime =  saveStaff.getStaffList().get(i).startTime;
+			  		SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm:ss");
+			  		SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
+			  		Date dates = parseFormat.parse(starttime);
+			  		System.out.println(parseFormat.format(dates) + " = " + displayFormat.format(dates));
+			  		 starttime=displayFormat.format(dates);
 			  endtime =  saveStaff.getStaffList().get(i).endTime;
+			  
+			  		Date endates = parseFormat.parse(endtime);
+			  		System.out.println(parseFormat.format(endates) + " = " + displayFormat.format(endates));
+			  		 endtime=displayFormat.format(endates);
 			 // creationtime =  saveStaff.getStaffList().get(i).createDatetime;
 			  Calendar currentdate = Calendar.getInstance();
 	          DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
 	          TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
 	          formatter.setTimeZone(obj);
 	          String createDate=time.getTimeZone();
+	          
+	       /* //conversion from 12 hour to 24 hour
+	        	 SimpleDateFormat displayFormat = new SimpleDateFormat("hh:mm a");
+	             SimpleDateFormat parseFormat = new SimpleDateFormat("HH:mm:ss");
+	             Date dates = parseFormat.parse(starttime);
+	             System.out.println(parseFormat.format(dates) + " = " + displayFormat.format(dates));
+	             String startTime=displayFormat.format(dates);
+	          
+	             Date endates = parseFormat.parse(endtime);
+	             System.out.println(parseFormat.format(endates) + " = " + displayFormat.format(endates));
+	             String endTime=displayFormat.format(endates);*/
+	             
 			  cisResults = saveStaffAvilabiltyDAO.saveStaffAvailability(availabilityId,staffid,weekName,starttime,endtime,createDate);
 		         
 			  

@@ -85,7 +85,7 @@ public class SmartAppointmentBL {
            
          }
          
-         
+         int staffid=0;
          
          for(int i=0;i<=8;i++)
          {
@@ -109,7 +109,7 @@ public class SmartAppointmentBL {
         	 String result = new StringBuilder().append(endDateTime).append(" ").append("2017").append(" ").append(" ").append(starttime).toString();
 
         		cisResults = smartAppointmentDAO.getPatientAvailable(patientId,result);
-        		
+         	
         	if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
       		   {
         		
@@ -123,7 +123,7 @@ public class SmartAppointmentBL {
        			 StaffModel staffModel = new StaffModel();
        			 
        			 String servicetype= staffList.get(s).serviceType;
-       			 int staffid=staffList.get(s).staffId;
+       			  staffid=staffList.get(s).staffId;
        			 String staffFirstname=staffList.get(s).fName;
        			 String staffLastname=staffList.get(s).lName;
        			 String weekday=staffList.get(s).weekday;
@@ -134,9 +134,12 @@ public class SmartAppointmentBL {
        			 staffModel.setWeekday(weekday);
        			 staffDetails.add(staffModel);
        		 }
-       			 /*cisResults = smartAppointmentDAO.getStaffVacation(staffid,finalString);
+       		 
+       		 
+       		 
+       			 cisResults = smartAppointmentDAO.getStaffVacation(staffid,startDateTime);
        			 
-       			 if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
+       			 /*if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
        			   {
        				  	cisResults = smartAppointmentDAO.getStaffAppt(staffid,finalString);
        				 	
@@ -175,8 +178,8 @@ public class SmartAppointmentBL {
        				  		String finalStrings = stringBuilders.toString();
        				  		System.out.println(finalStrings);
        				  		cisResults.setResultObject(finalStrings);
-       			   }*/
-       				 
+       			   }
+       			*/	 
        			}
         	 
         	 
