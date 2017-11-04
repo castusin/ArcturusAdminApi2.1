@@ -123,7 +123,7 @@ public class SmartAppointmentBL {
        			 StaffModel staffModel = new StaffModel();
        			 
        			 String servicetype= staffList.get(s).serviceType;
-       			  staffid=staffList.get(s).staffId;
+       			 staffid=staffList.get(s).staffId;
        			 String staffFirstname=staffList.get(s).fName;
        			 String staffLastname=staffList.get(s).lName;
        			 String weekday=staffList.get(s).weekday;
@@ -133,12 +133,13 @@ public class SmartAppointmentBL {
        			 staffModel.setlName(staffLastname);
        			 staffModel.setWeekday(weekday);
        			 staffDetails.add(staffModel);
-       		 }
        		 
+       		  
+       		 }	 
        		 
-       		 
-       			 cisResults = smartAppointmentDAO.getStaffVacation(staffid,startDateTime);
-       			 
+       		cisResults = smartAppointmentDAO.getStaffVacation(staffid,startDateTime);
+       		
+       		
        			 /*if(cisResults.getResponseCode().equalsIgnoreCase(CISConstants.RESPONSE_FAILURE))
        			   {
        				  	cisResults = smartAppointmentDAO.getStaffAppt(staffid,finalString);

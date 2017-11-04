@@ -18,8 +18,8 @@ public class SmartAppointmentQuery {
 	
 	
 	
-	public static String SQL_GETSTAFFSERVICETYPE = " SELECT S.Staff_id, S.Fname, S.Lname,S.Servicetype,SA.Weekday_name, SA.Start_time, SA.End_time FROM Staff_table	S, Staff_available_table SA	where S.Staff_id = SA.Staff_id 	and S.Servicetype = ? AND str_to_date(SA.start_time,'%h:%i:%s %p') <=  ?  AND str_to_date(SA.End_time,'%h:%i:%s %p') >=  ?	and SA.Weekday_name = dayname(STR_TO_DATE(?,'%Y-%m-%d'))"; 
+	public static String SQL_GETSTAFFSERVICETYPE = " SELECT S.Staff_id, S.Fname, S.Lname,S.Servicetype,SA.Weekday_name, SA.Start_time, SA.End_time FROM Staff_table	S, Staff_available_table SA	where S.Staff_id = SA.Staff_id 	and S.Servicetype = ? AND SA.start_time <=  ?  AND SA.End_time >=  ?	AND SA.Weekday_name = DAYNAME(  ? ) "; 
 
-	public static String SQL_GETSTAFFVACATION = " select * from Staff_vacation where STR_TO_DATE(?,'%Y-%m-%d')>= DATE(str_to_date(Start_datetime,'%a %b %d %Y %T')) and STR_TO_DATE(?,'%Y-%m-%d')<= DATE(str_to_date(end_datetime,'%a %b %d %Y %T'))and Staff_id in (1,2)";
+	public static String SQL_GETSTAFFVACATION = " select * from Staff_vacation where STR_TO_DATE(?,'%Y-%m-%d')>= DATE(str_to_date(Start_datetime,'%a %b %d %Y %T')) and STR_TO_DATE(?,'%Y-%m-%d')<= DATE(str_to_date(end_datetime,'%a %b %d %Y %T'))and Staff_id in (?)";
 	
 }
