@@ -23,7 +23,6 @@ public class SmartAppointmentDAO extends JdbcDaoSupport {
 		// TODO Auto-generated method stub
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		StaffModel getPatientEmail=new StaffModel();
 		Object[] inputs = new Object[]{patientId};
 		try{
 			// Capture service Start time
@@ -99,39 +98,35 @@ public class SmartAppointmentDAO extends JdbcDaoSupport {
    		return getstaffList; 
 	}
 
-	public CISResults getStaffVacation(int staffid, String startDateTime) {
+	public List<StaffModel> getStaffVacation(int staffid, String vacationStartDate,StringBuilder idList) {
 		// TODO Auto-generated method stub
 		CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		StaffModel getstaffEmail=new StaffModel();
-		Object[] inputs = new Object[]{startDateTime,startDateTime,staffid};
+		List<StaffModel> getstaffVacationList=null;
+		Object[] inputs = new Object[]{vacationStartDate,vacationStartDate};
 		try{
 			// Capture service Start time
 			 TimeCheck time=new TimeCheck();
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
-			 StaffModel res=(StaffModel)getJdbcTemplate().queryForObject(SmartAppointmentQuery.SQL_GETSTAFFVACATION,inputs,new StaffVacationMapper());
-			 cisResults.setResultObject(res);
+			// Hard coded, will change later
+			 String Query = "select * from Staff_vacation where STR_TO_DATE(?,'%Y-%m-%d')>= DATE(str_to_date(Start_datetime,'%a %b %d %Y %T')) and STR_TO_DATE(?,'%Y-%m-%d')<= DATE(str_to_date(end_datetime,'%a %b %d %Y %T'))and Staff_id in"+"("+idList+")";
+			 getstaffVacationList = getJdbcTemplate().query(Query,inputs,new StaffVacationMapper());
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("staff email query time:: " +result);
-			
 		} catch (DataAccessException e) {
 			e.printStackTrace();
-		
 			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
 			cisResults.setErrorMessage("Failed to get  Data");
 		}
-   		return cisResults; 
+   		return getstaffVacationList; 
 	}
 
 	public CISResults getStaffAppt(int stafId, String startDateTime) {
 		// TODO Auto-generated method stub
-
-
-		CISResults cisResults=new CISResults();
+        CISResults cisResults=new CISResults();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
-		StaffModel getstaffEmail=new StaffModel();
 		Object[] inputs = new Object[]{stafId,startDateTime};
 		try{
 			// Capture service Start time
@@ -179,6 +174,32 @@ public class SmartAppointmentDAO extends JdbcDaoSupport {
 			//cisResults.setErrorMessage("Failed to get  Data");
 		}
    		return cisResults; 
+	}
+
+	public List<StaffModel> getAppointmentStafflist(
+			String startDateTime, StringBuilder idList,String starttime) {
+		// TODO Auto-generated method stub
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		List<StaffModel> getstaffAppointments=null;
+		Object[] inputs = new Object[]{startDateTime,starttime};
+		try{
+			// Capture service Start time
+			 TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			 // Hard coded, will change later
+			 String Query = "select * from Appointments_table where Apt_person_id in "+"("+idList+")and DATE(str_to_date(Apt_starttime,'%a %b %d %Y %T')) = STR_TO_DATE(?,'%Y-%m-%d')and TIME(str_to_date(Apt_starttime,'%a %b %d %Y %T')) = ?";
+			 getstaffAppointments = getJdbcTemplate().query(Query,inputs,new StaffAppointmentMapper());
+			 String serviceEndTime=time.getTimeZone();
+			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 logger.info("staff email query time:: " +result);
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed to get  Data");
+		}
+   		return getstaffAppointments; 
 	}
 
 }
