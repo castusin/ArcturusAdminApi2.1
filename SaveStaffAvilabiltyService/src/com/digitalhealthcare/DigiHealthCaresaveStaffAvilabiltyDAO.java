@@ -17,6 +17,7 @@ public class DigiHealthCaresaveStaffAvilabiltyDAO extends JdbcDaoSupport {
 			String startTime, String endTime,
 			String createDate) {
 		CISResults cisResults=new CISResults();
+		AddAvailability availId=new AddAvailability();
 		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
 		Logger logger = Logger.getLogger(DigiHealthCaresaveStaffAvilabiltyDAO.class);
 		try{
@@ -25,6 +26,8 @@ public class DigiHealthCaresaveStaffAvilabiltyDAO extends JdbcDaoSupport {
 			 testServiceTime sessionTimeCheck=new testServiceTime();
 			 String serviceStartTime=time.getTimeZone();
 			 getJdbcTemplate().update(DigiHealthCaresaveStaffAvilabiltyQuery.SQL_SAVESTAFFAVAILABILITY,availabilityId,staffId,weekdayName,startTime,endTime,createDate);
+			/* availId.setAvailabilityId(availabilityId);
+			 cisResults.setResultObject(availId);*/
 			 String serviceEndTime=time.getTimeZone();
 			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
 			 logger.info("save staff availability  query time:: " +result);

@@ -3,26 +3,16 @@ package com.digitalhealthcare;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 import java.util.TimeZone;
-import java.util.UUID;
-import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cis.CISConstants;
 import com.cis.CISResults;
-import com.cis.EmailCommunication;
-import com.cis.SMSCommunication;
 import com.cis.TimeCheck;
 import com.cis.testServiceTime;
 
@@ -63,7 +53,28 @@ public class DigiHealthCareEditStaffAvilabiltyBL {
 			  //staffid =  editStaff.getStaffList().get(i).staffId;
 			  weekName =  editStaff.getStaffList().get(i).weekdayName;
 			  starttime =  editStaff.getStaffList().get(i).startTime;
+			  
+			  if(starttime.equalsIgnoreCase("")){
+				  
+				  Calendar currentdate = Calendar.getInstance();
+		          DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
+		          TimeZone obj = TimeZone.getTimeZone(CISConstants.TIME_ZONE);
+		          formatter.setTimeZone(obj);
+		          String createDate=time.getTimeZone();
+				  cisResults = editStaffAvilabiltyDAO.editStaffAvilabilty(availId,staffid,weekName,starttime,endtime,createDate);
+			    
+				  
+			  }else{
+						  
+			  SimpleDateFormat displayFormat = new SimpleDateFormat("HH:mm:ss");
+		  		SimpleDateFormat parseFormat = new SimpleDateFormat("hh:mm a");
+		  		Date dates = parseFormat.parse(starttime);
+		  		System.out.println(parseFormat.format(dates) + " = " + displayFormat.format(dates));
+		  		 starttime=displayFormat.format(dates);
 			  endtime =  editStaff.getStaffList().get(i).endTime;
+			  	Date endates = parseFormat.parse(endtime);
+		  		System.out.println(parseFormat.format(endates) + " = " + displayFormat.format(endates));
+		  		 endtime=displayFormat.format(endates);
 			 // creationtime =  saveStaff.getStaffList().get(i).createDatetime;
 			  Calendar currentdate = Calendar.getInstance();
 	          DateFormat formatter = new SimpleDateFormat(CISConstants.GS_DATE_FORMAT);
@@ -71,7 +82,7 @@ public class DigiHealthCareEditStaffAvilabiltyBL {
 	          formatter.setTimeZone(obj);
 	          String createDate=time.getTimeZone();
 			  cisResults = editStaffAvilabiltyDAO.editStaffAvilabilty(availId,staffid,weekName,starttime,endtime,createDate);
-		         
+			  }    
 			  
 		  }
          // Capture Service End time

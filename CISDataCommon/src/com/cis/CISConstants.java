@@ -51,7 +51,8 @@ public class CISConstants {
 	public static final int totalDay1=0;
 	public static final int totalDay2=1;
 	public static final String ADMINPHONENUMBER="14703373204";
-	public static final String ADMINEMAILID="Sarisht@gmail.com";
+	public static final String ADMINEMAILID="saritha@arcturushc.com";
+	
 	public static final String EMAILHOST="castusinfo.com";
 	public static final String PRODEMAILHOST="mathgator.com";
 	public static final String EMAILUSERNAME="arcturus@castusinfo.com";

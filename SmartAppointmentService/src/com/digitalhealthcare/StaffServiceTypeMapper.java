@@ -1,5 +1,6 @@
 package com.digitalhealthcare;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -17,6 +18,8 @@ public class StaffServiceTypeMapper implements RowMapper{
 		getStafflist.setEndTime(rs.getString("End_time"));
 		getStafflist.setServiceType(rs.getString("Servicetype"));
 		getStafflist.setWeekday(rs.getString("Weekday_name"));
+		getStafflist.setLattitude(rs.getFloat("Lattitude"));
+		getStafflist.setLongitude(rs.getFloat("Longitude"));
 		
 		return getStafflist;
 	}

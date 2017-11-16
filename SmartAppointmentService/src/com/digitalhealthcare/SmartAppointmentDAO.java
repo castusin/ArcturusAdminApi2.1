@@ -1,5 +1,6 @@
 package com.digitalhealthcare;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -200,6 +201,35 @@ public class SmartAppointmentDAO extends JdbcDaoSupport {
 			cisResults.setErrorMessage("Failed to get  Data");
 		}
    		return getstaffAppointments; 
+	}
+
+	public List<StaffModel> getPriorSlotDetails(String beforeSlot,
+			String appointmentDate, StringBuilder idList) {
+		// TODO Auto-generated method stub
+		CISResults cisResults=new CISResults();
+		cisResults.setResponseCode(CISConstants.RESPONSE_SUCCESS);
+		List<StaffModel> getDistanationsList=null;
+		Object[] inputs = new Object[]{appointmentDate,beforeSlot};
+		try{
+			// Capture service Start time
+			 TimeCheck time=new TimeCheck();
+			 testServiceTime sessionTimeCheck=new testServiceTime();
+			 String serviceStartTime=time.getTimeZone();
+			// Hard coded, will change later
+			 String Query = " select st.staff_id,ifnull(stap.Lattitude,st.Lattitude) as latitude,ifnull(stap.longitude,st.longitude) as longitude from Staff_table st left outer join(SELECT ap.Apt_person_id,ap.apt_id,ap.patient_id,pt.Lattitude,pt.Longitude from Appointments_table ap , Profile_table pt where ap.patient_id = pt.user_id and DATE( str_to_date( ap.Apt_starttime, '%a %b %d %Y %T' ) ) = STR_TO_DATE(?, '%Y-%m-%d' )and TIME( str_to_date( ap.Apt_starttime, '%a %b %d %Y %T' ) ) = ? )stap on st.staff_id=stap.Apt_person_id where st.staff_id in "+"("+idList+")";
+			 
+			 
+			 
+			 getDistanationsList = getJdbcTemplate().query(Query,inputs,new StaffDistancesMapper());
+			 String serviceEndTime=time.getTimeZone();
+			 long result=sessionTimeCheck.getServiceTime(serviceEndTime,serviceStartTime);
+			 logger.info("staff email query time:: " +result);
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			cisResults.setResponseCode(CISConstants.RESPONSE_FAILURE);
+			cisResults.setErrorMessage("Failed to get  Data");
+		}
+   		return getDistanationsList; 
 	}
 
 }

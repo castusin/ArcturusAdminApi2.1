@@ -29,7 +29,24 @@ public class DigiHealthCareViewStaffAvilabiltyBL {
     			 
     			 AddAvailability staffModel = new AddAvailability();
     			 
+    			 
+    			 String availabilityId=staffList.get(s).availabilityId;
+    			 staffModel.setAvailabilityId(availabilityId);
     			 String starttime= staffList.get(s).startTime;
+    			 
+    			 if(starttime.equalsIgnoreCase("")){
+    				 
+    				 String weekday=staffList.get(s).weekdayName;
+    	    			
+        			 staffModel.setStartTime(starttime);
+        			 String endtime=staffList.get(s).endTime;
+        			 staffModel.setEndTime(endtime);
+        			 
+        			 staffModel.setWeekdayName(weekday);
+        			 staffDetails.add(staffModel);
+    				 
+    			 }else{
+    				 
     			 	SimpleDateFormat displayFormat = new SimpleDateFormat("hh:mm a");
     			 	SimpleDateFormat parseFormat = new SimpleDateFormat("HH:mm:ss");
     			 	java.util.Date dates = parseFormat.parse(starttime);
@@ -47,18 +64,12 @@ public class DigiHealthCareViewStaffAvilabiltyBL {
     			 staffModel.setEndTime(endtime);
     			 
     			 staffModel.setWeekdayName(weekday);
-    			
-    			 
-    			  //conversion from 12 hour to 24 hour
-	        	/* SimpleDateFormat displayFormat = new SimpleDateFormat("hh:mm a");
-	             SimpleDateFormat parseFormat = new SimpleDateFormat("HH:mm:ss");
-	             java.util.Date dates = parseFormat.parse(starttime);
-	             System.out.println(parseFormat.format(dates) + " = " + displayFormat.format(dates));
-	             starttime=displayFormat.format(dates);*/
-	          
+    			staffModel.setAvailabilityId(availabilityId);
+    		
 	            
 	             staffDetails.add(staffModel);
     		 }
+    	}
     		 cisResult.setResultObject(staffDetails);
 		logger.info("DigitalHealthCare:view staff availability BL  service" +cisResult );
 		return cisResult;
